@@ -85,7 +85,8 @@ $.fn.extend({
 		settings = $.extend({
 			autoclear: $.mask.autoclear,
 			placeholder: $.mask.placeholder, // Load default placeholder
-			completed: null
+			completed: null,
+			incompleted: null
 		}, settings);
 
 
@@ -135,6 +136,14 @@ $.fn.extend({
                 }
                 settings.completed.call(input);
             }
+
+			function tryFireIncompleted(){
+				if (!settings.incompleted) {
+					return;
+				}
+
+				settings.incompleted.call(input);
+			}
 
             function getPlaceholder(i){
                 if(i < settings.placeholder.length)
@@ -360,10 +369,12 @@ $.fn.extend({
 						// mask, which is the default behavior.
 						if(input.val()) input.val("");
 						clearBuffer(0, len);
+						tryFireIncompleted();
 					} else {
 						// Invalid value, but we opt to show the value to the
 						// user and allow them to correct their mistake.
 						writeBuffer();
+						tryFireIncompleted();
 					}
 				} else {
 					writeBuffer();

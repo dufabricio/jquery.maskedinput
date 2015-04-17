@@ -44,6 +44,14 @@ jQuery(function($){
 });
 ```
 
+Optionally, if you would like to execute a function once the mask has not been completed (see autoclear option), you can specify that function as an optional argument to the maskedinput method.
+
+```html
+jQuery(function($){
+   $("#product").mask("99/99/9999",{incompleted:function(){alert("Please, type a valid value.");}});
+});
+```
+
 You can now supply your own mask definitions.
 ```html
 jQuery(function($){
