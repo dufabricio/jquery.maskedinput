@@ -12,5 +12,18 @@
   },
   "scripts": {
     "test": "grunt test"
-  }
+  },
+  "main": "gruntfile.js",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dufabricio/jquery.maskedinput.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dufabricio/jquery.maskedinput/issues"
+  },
+  "homepage": "https://github.com/dufabricio/jquery.maskedinput"
 }
