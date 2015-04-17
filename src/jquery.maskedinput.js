@@ -86,7 +86,8 @@ $.fn.extend({
 			autoclear: $.mask.autoclear,
 			placeholder: $.mask.placeholder, // Load default placeholder
 			completed: null,
-			incompleted: null
+			incompleted: null,
+			checkonload: true
 		}, settings);
 
 
@@ -440,7 +441,11 @@ $.fn.extend({
                         .off('input.mask')
                         .on('input.mask', androidInputEvent);
                 }
-				checkVal(); //Perform initial check for existing values
+
+			    if(settings.checkonload) {
+					checkVal(); //Perform initial check for existing values
+				}
+
 		});
 	}
 });

@@ -46,7 +46,8 @@
                 autoclear: $.mask.autoclear,
                 placeholder: $.mask.placeholder,
                 completed: null,
-                incompleted: null
+                incompleted: null,
+                checkonload: !0
             }, settings), defs = $.mask.definitions, tests = [], partialPosition = len = mask.length, 
             firstNonMaskPos = null, $.each(mask.split(""), function(i, c) {
                 "?" == c ? (len--, partialPosition = i) : defs[c] ? (tests.push(new RegExp(defs[c])), 
@@ -179,7 +180,7 @@
                         input.caret(pos), tryFireCompleted();
                     }, 0);
                 }), chrome && android && input.off("input.mask").on("input.mask", androidInputEvent), 
-                checkVal();
+                settings.checkonload && checkVal();
             });
         }
     });
